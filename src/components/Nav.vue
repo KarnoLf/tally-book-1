@@ -5,14 +5,22 @@
       <v-icon class="svg" iconClass="label" />
       标签
     </li>
-     <li :class="$route.path==='/home' ? 'active' : ''" @click="goHome">记账</li>
-     <li :class="$route.path==='/statistics' ? 'active' : ''"  @click="goStatistics">数据</li>
+     <li :class="$route.path==='/home' ? 'active' : ''" @click="goHome">
+      <v-icon class="svg" iconClass="money" />
+      记账
+    </li>
+     <li :class="$route.path==='/statistics' ? 'active' : ''"  @click="goStatistics">
+      <v-icon class="svg" iconClass="statistics" />
+      数据
+    </li>
     </ul>
   </div>
 </template>
  
 <script>
 import '@/icons/svg/label.svg'
+import '@/icons/svg/money.svg'
+import '@/icons/svg/statistics.svg'
 export default {
   methods:{
     goHome(){
@@ -43,6 +51,9 @@ export default {
     &.active{
       color: rgb(196, 55, 13);
       font-weight: bold;
+    }
+    .svg{
+      margin: auto;
     }
   }
 }
