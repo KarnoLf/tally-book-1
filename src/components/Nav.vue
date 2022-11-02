@@ -18,9 +18,16 @@
 </template>
  
 <script>
-import '@/icons/svg/label.svg'
-import '@/icons/svg/money.svg'
-import '@/icons/svg/statistics.svg'
+// import 一个目录
+const context = require.context('../icons/svg',true,/\.svg$/)
+try{
+  context.keys().forEach(context)
+}catch(error){
+  console.log(error);
+}
+// import '@/icons/svg/label.svg'
+// import '@/icons/svg/money.svg'
+// import '@/icons/svg/statistics.svg'
 export default {
   methods:{
     goHome(){
