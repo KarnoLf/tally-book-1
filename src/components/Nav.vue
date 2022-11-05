@@ -19,9 +19,9 @@
  
 <script>
 // import 一个目录
-const context = require.context('../icons/svg',true,/\.svg$/)
+const dir = require.context('../icons/svg',true,/\.svg$/)
 try{
-  context.keys().forEach(context)
+  dir.keys().forEach(dir)
 }catch(error){
   console.log(error);
 }
