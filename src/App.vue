@@ -24,13 +24,17 @@ export default{
   box-sizing: border-box;
   list-style: none;
 }
+
 body{
-  background: #efefef;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #app{
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background: #efefef;
 }
 .router-content{
   flex-grow: 1;

@@ -29,6 +29,7 @@ export default {
 .svg-icon{
     width: 1.5em;
     height: 1.5em;
+    // svg随着包裹它的容器的要求改变而改变颜色；
     fill: currentColor;
   }
 </style>
