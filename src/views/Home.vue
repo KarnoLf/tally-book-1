@@ -1,28 +1,24 @@
 <template>
   <div class="home">
     <div class="headline">记一笔</div>
-
-    <div class="write">
-      <p>备注</p>
-      <input type="text" placeholder="在此输入备注" >
-    </div>
-    <div class="number">
-      <p>数目</p>
-      <input type="number">
-    </div>
     <div class="fundsOption">
-      <div>
-        <input type="radio" id="funds0" name="funds-option" value="0" checked="checked">
-        <label for="funds0">支出</label>
-      </div>
-      <div>
-        <input type="radio" id="funds1" name="funds-option" value="1">
-        <label for="funds1">收入</label>
-      </div>
+      <ul>
+        <li>支出</li>
+        <li>收入</li>
+      </ul>
     </div>
+    <label class="write">
+      <span>备注</span>
+      <input type="text" placeholder="在此输入备注" >
+    </label>
+    <label class="write">
+      <span>数目</span>
+      <input type="number">
+    </label>
     <h3>分类</h3>
     <div class="labelOption">
       <div class="label"></div>
+      <div class="label"> + 增加</div>
     </div>
 </div>
 </template>
@@ -47,12 +43,22 @@ export default {
 }
 .fundsOption{
   height: 50px;
-  display: flex;
   justify-content: space-around;
-  border-bottom:1px solid #bbb;
   line-height: 50px;
-  input{
-    margin-right: 5px;
+  margin-bottom: 10px;
+  ul{
+    display: flex;
+    li{
+      flex-grow: 1;
+      text-align: center;
+      &.selected{
+        border-bottom: 3px solid black;
+      }
+    }
+    li:active{
+      background: gold;
+     
+    }
   }
 }
 .write{
@@ -60,28 +66,20 @@ export default {
   height: 50px;
   padding: 10px;
   // border-bottom:1px solid #bbb;
-  p{
+  span{
     font-weight: bold;
+    margin-left: 15px;
   }
   input{
-    background: inherit;
-    margin-left: 20px;
-  }
-}
-.number{
-  display: flex;
-  height: 50px;
-  padding: 10px;
-  // border-bottom:1px solid #bbb;
-  p{
-    font-weight: bold;
-  }
-  input{
-    margin-left: 20px;
+    background: white;
+    margin-left: 40px;
+    padding-left: 5px;
   }
 }
 h3{
-    margin-left: 10px;
+    margin:10px 20px;
+    padding-top: 5px;
+    border-top:1px solid #bbb;
   }
 .labelOption{
   display: flex;
@@ -90,8 +88,9 @@ h3{
     margin: 2.5%;
     border: 1px solid #444;
     border-radius: 5px;
-    height: 30px;
     width: 20%;
+    padding: 5px;
+    text-align: center;
   }
 }
 </style>
