@@ -56,7 +56,7 @@ export default {
     display: flex;
     flex-direction: column;
     &.active{
-      color: rgb(196, 55, 13);
+      color: #e9a738;
       font-weight: bold;
     }
     .svg{

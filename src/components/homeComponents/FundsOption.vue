@@ -1,8 +1,8 @@
 <template>
   <div class="fundsOption">
     <ul>
-      <li class="selected">支出</li>
-      <li>收入</li>
+      <li :class="type === '-' && 'selected'" @click="selectType('-')"><span>支出</span></li>
+      <li :class="type === '+' && 'selected'" @click="selectType('+')"><span>收入</span></li>
     </ul>
   </div>
 </template>
@@ -11,7 +11,17 @@
 export default {
   data() {
     return {
-
+      // '-'代表支出，'+'代表收入
+      type:'-'
+    }
+  },
+  methods:{
+    // type 只能有 '-'和'+'两个值，不能有其他值
+    selectType(type){
+      if(type !== '-' && type !== '+'){
+        throw new Error('type is unknown')
+      }
+      this.type = type
     }
   }
 }
@@ -28,13 +38,17 @@ export default {
     li{
       flex-grow: 1;
       text-align: center;
-      &.selected{
-        border-bottom: 3px solid #333;
+      span{
+        background: #e1e1e1;
+        border-radius: 10px;
+        padding: 5px 20px;
       }
-    }
-    li:active{
-      background: gold;
-     
+      &.selected{
+        span{
+          background: #eaa838;
+          color: white;
+        }
+      }
     }
   }
 }
