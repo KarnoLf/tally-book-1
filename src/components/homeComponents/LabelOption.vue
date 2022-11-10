@@ -2,28 +2,6 @@
   <div class="labelOption">
     <div class="label" v-show="false"></div>
     <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
-    <div class="label"> + 增加</div>
   </div>
 </template>
  

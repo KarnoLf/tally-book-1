@@ -6,7 +6,7 @@
     </label>
     <label class="write">
       <span>数目</span>
-      <input type="number">
+      <input type="number" oninput="if(value.length>9)value=value.slice(0,9)">
     </label>
   </div>
 </template>
@@ -15,8 +15,11 @@
 export default {
   data() {
     return {
-      
+      output:''
     }
+  },
+  methods:{
+    
   }
 }
 </script>

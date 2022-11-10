@@ -1,10 +1,10 @@
 <template>
   <div class="home">
     <div class="contentArea">
-      <div class="headline">记一笔</div>
+      <div class="headline">Yuan 记账</div>
       <FundsOption />
       <Write />
-      <h3>分类</h3>
+      <h3>标签</h3>
       <LabelOption />
     </div>
     <div class="buttonArea">
