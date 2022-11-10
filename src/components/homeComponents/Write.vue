@@ -1,12 +1,14 @@
 <template>
   <div>
     <label class="write">
+      {{writeValue}}
       <span>备注</span>
-      <input type="text" placeholder="在此输入备注" :value="writeValue" @input="onInputT">
+      <input type="text" placeholder="在此输入备注" v-model="writeValue">
     </label>
     <label class="write">
+      {{numberValue}}
       <span>数目</span>
-      <input type="number" oninput="if(value.length>16)value=value.slice(0,16)" :value="numberValue" @input="onInputN">
+      <input type="number" oninput="if(value.length>16)value=value.slice(0,16)" v-model="numberValue">
       <!-- 限制长度 -->
     </label>
   </div>
@@ -21,12 +23,7 @@ export default {
     }
   },
   methods:{
-    onInputT(event){
-      this.writeValue = event.target.value
-    },
-    onInputN(event){
-      this.numberValue = event.target.value
-    }
+   
   }
 }
 </script>
