@@ -2,6 +2,28 @@
   <div class="labelOption">
     <div class="label" v-show="false"></div>
     <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
+    <div class="label"> + 增加</div>
   </div>
 </template>
  
@@ -27,6 +49,7 @@ export default {
     width: 20%;
     padding: 5px;
     text-align: center;
+    background: #efefef;
   }
 }
 </style>

@@ -39,9 +39,12 @@ export default {
       flex-grow: 1;
       text-align: center;
       span{
-        background: #e1e1e1;
+        background: #e9e4e4;
         border-radius: 10px;
         padding: 5px 20px;
+        color: #eaa838;
+        font-size: 1.1em;
+        font-weight: bold;
       }
       &.selected{
         span{
