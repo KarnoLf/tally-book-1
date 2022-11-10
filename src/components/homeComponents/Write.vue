@@ -2,11 +2,12 @@
   <div>
     <label class="write">
       <span>备注</span>
-      <input type="text" placeholder="在此输入备注">
+      <input type="text" placeholder="在此输入备注" :value="writeValue" @input="onInputT">
     </label>
     <label class="write">
       <span>数目</span>
-      <input type="number" oninput="if(value.length>9)value=value.slice(0,9)">
+      <input type="number" oninput="if(value.length>16)value=value.slice(0,16)" :value="numberValue" @input="onInputN">
+      <!-- 限制长度 -->
     </label>
   </div>
 </template>
@@ -15,11 +16,17 @@
 export default {
   data() {
     return {
-      output:''
+      writeValue:'',
+      numberValue:''
     }
   },
   methods:{
-    
+    onInputT(event){
+      this.writeValue = event.target.value
+    },
+    onInputN(event){
+      this.numberValue = event.target.value
+    }
   }
 }
 </script>
