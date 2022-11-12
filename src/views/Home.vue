@@ -5,7 +5,7 @@
       <FundsOption />
       <Write />
       <h3>标签</h3>
-      <LabelOption :labels="labels"/>
+      <LabelOption :labels.sync="labels" />
     </div>
     <div class="buttonArea">
       <Ok/>
@@ -26,7 +26,7 @@ export default {
   },
   data(){
     return{
-      labels:['衣','食','住','行']
+      labels:['衣','食','住','行'],
     }
   }
 }

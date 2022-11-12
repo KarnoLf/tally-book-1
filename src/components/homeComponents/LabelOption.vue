@@ -2,7 +2,7 @@
   <div>
     <ul class="labelOption">
       <li :class="selectedLabels.indexOf(label)>=0 && 'selected'" v-for="(label,index) in labels" :key="index" @click="select(label)">{{label}}</li>
-      <li class="label">+ 增加</li>
+      <li class="label" @click="create">+ 增加</li>
     </ul>
   </div>
 </template>
@@ -22,6 +22,15 @@ export default {
         this.selectedLabels.push(label)
       }else{
         this.selectedLabels.splice(index,1)
+      }
+    },
+    create(){
+      const name = window.prompt('请输入标签名：')
+      if(name === '' || name === ' '){ window.alert('标签名不能为空') }
+      if(name === null){console.log(null);}
+      if(this.labels){
+        const value = this.labels.push(name)
+        this.$emit('labels',value)
       }
     }
   }
