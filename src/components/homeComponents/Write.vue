@@ -1,12 +1,10 @@
 <template>
   <div>
     <label class="write">
-      {{writeValue}}
       <span>备注</span>
       <input type="text" placeholder="在此输入备注" v-model="writeValue">
     </label>
     <label class="write">
-      {{numberValue}}
       <span>数目</span>
       <input type="number" oninput="if(value.length>16)value=value.slice(0,16)" v-model="numberValue">
       <!-- 限制长度 -->

@@ -5,7 +5,7 @@
       <FundsOption />
       <Write />
       <h3>标签</h3>
-      <LabelOption />
+      <LabelOption :labels="labels"/>
     </div>
     <div class="buttonArea">
       <Ok/>
@@ -18,10 +18,16 @@ import FundsOption from '@/components/homeComponents/FundsOption.vue'
 import Write from '@/components/homeComponents/Write.vue'
 import LabelOption from '@/components/homeComponents/LabelOption.vue'
 import Ok from '@/components/homeComponents/Ok.vue'
+
 export default {
   name: 'home',
   components: {
     FundsOption, Write, LabelOption,Ok
+  },
+  data(){
+    return{
+      labels:['衣','食','住','行']
+    }
   }
 }
 </script>

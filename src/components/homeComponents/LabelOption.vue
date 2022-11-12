@@ -1,7 +1,9 @@
 <template>
-  <div class="labelOption">
-    <div class="label" v-show="false"></div>
-    <div class="label"> + 增加</div>
+  <div>
+    <ul class="labelOption">
+      <li :class="selectedLabels.indexOf(label)>=0 && 'selected'" v-for="(label,index) in labels" :key="index" @click="select(label)">{{label}}</li>
+      <li class="label">+ 增加</li>
+    </ul>
   </div>
 </template>
  
@@ -9,9 +11,21 @@
 export default {
   data() {
     return {
-
+      selectedLabels:[]
+    }
+  },
+  props:['labels'],
+  methods:{
+    select(label){
+      const index = this.selectedLabels.indexOf(label)
+      if( index < 0){
+        this.selectedLabels.push(label)
+      }else{
+        this.selectedLabels.splice(index,1)
+      }
     }
   }
+ 
 }
 </script>
  
@@ -19,8 +33,8 @@ export default {
 .labelOption {
   display: flex;
   flex-wrap: wrap;
-
-  .label {
+}
+li {
     margin: 2.5%;
     border: 1px solid #444;
     border-radius: 5px;
@@ -29,5 +43,7 @@ export default {
     text-align: center;
     background: #efefef;
   }
-}
+  .selected{
+    background: rgb(231, 210, 170);
+  }
 </style>
