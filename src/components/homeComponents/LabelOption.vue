@@ -29,8 +29,9 @@ export default {
       if(name === '' || name === ' '){ window.alert('标签名不能为空') }
       if(name === null){console.log(null);}
       if(this.labels){
-        const value = this.labels.push(name)
-        this.$emit('labels',value)
+        this.labels.push(name)
+        console.log(this.labels);
+        this.$emit('labels',this.labels)
       }
     }
   }

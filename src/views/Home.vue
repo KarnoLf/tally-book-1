@@ -28,7 +28,7 @@ export default {
     return{
       labels:['衣','食','住','行'],
     }
-  }
+  },
 }
 </script>
  
