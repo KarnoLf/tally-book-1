@@ -5,7 +5,7 @@
       <FundsOption @update:value="onUpdatedFunds" />
       <Write @update:value1="onUpdatedNumber" @update:value2="onUpdatedString"/>
       <h3>标签</h3>
-      <LabelOption :labels.sync="record.labels" @update:value="onUpdatedLabel" />
+      <LabelOption :labels.sync="labels" @update:value="onUpdatedLabel" />
     </div>
     <div class="buttonArea">
       <button class="ok">确 定</button>
@@ -25,8 +25,9 @@ export default {
   },
   data() {
     return {
+      labels: ['衣', '食', '住', '行'],
       record: {
-        labels: ['衣', '食', '住', '行'],
+        labels: [],
         note: '',
         number: 0,
         funds: '-'

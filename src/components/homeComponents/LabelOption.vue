@@ -19,10 +19,10 @@ export default {
     select(label){
       // 选择或取消选择标签
       const index = this.selectedLabels.indexOf(label)
-      if( index < 0){
-        this.selectedLabels.push(label)
-      }else{
+      if( index >= 0){
         this.selectedLabels.splice(index,1)
+      }else{
+        this.selectedLabels.push(label)
       }
       this.$emit('update:value',this.selectedLabels)
     },
