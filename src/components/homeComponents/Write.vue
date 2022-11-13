@@ -20,8 +20,14 @@ export default {
       numberValue:''
     }
   },
-  methods:{
-   
+  watch:{
+    // nv -> new value,ov -> old value
+    writeValue:function(nv){
+      this.$emit('update:value2',nv)
+    },
+    numberValue:function(nv){
+      this.$emit('update:value1',nv)
+    }
   }
 }
 </script>

@@ -17,14 +17,17 @@ export default {
   props:['labels'],
   methods:{
     select(label){
+      // 选择或取消选择标签
       const index = this.selectedLabels.indexOf(label)
       if( index < 0){
         this.selectedLabels.push(label)
       }else{
         this.selectedLabels.splice(index,1)
       }
+      this.$emit('update:value',this.selectedLabels)
     },
     create(){
+      // 新建标签
       const name = window.prompt('请输入标签名：')
       if(name === '' || name === ' '){ window.alert('标签名不能为空') }
       if(name === null){console.log(null);}

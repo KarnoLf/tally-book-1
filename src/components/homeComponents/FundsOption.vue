@@ -23,6 +23,11 @@ export default {
       }
       this.type = type
     }
+  },
+  watch:{
+    type:function(value){
+      this.$emit('update:value',value)
+    }
   }
 }
 </script>

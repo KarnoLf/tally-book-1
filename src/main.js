@@ -6,7 +6,7 @@ import store from './store'
 import * as Icon from './icons'
 
 Vue.config.productionTip = false
-
+Vue.prototype.$bus = new Vue()
 
 new Vue({
   router,
