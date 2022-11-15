@@ -33,7 +33,6 @@ export default {
       if(name === null){console.log(null);}
       if(this.labels){
         this.labels.push(name)
-        console.log(this.labels);
         this.$emit('labels',this.labels)
       }
     }
