@@ -6,7 +6,7 @@
     </label>
     <label class="write">
       <span>数目</span>
-      <input type="number" oninput="if(value.length>16)value=value.slice(0,16)" v-model="numberValue">
+      <input type="number" placeholder="在此输入数字" oninput="if(value.length>16)value=value.slice(0,16)" v-model="numberValue">
       <!-- 限制长度 -->
     </label>
   </div>

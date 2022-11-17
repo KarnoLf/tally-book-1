@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       // 先存储到recordList
-      recordList: [],
+      recordList: JSON.parse(window.localStorage.getItem('recordList')) || [],
       labels: ['衣', '食', '住', '行'],
       record: {
         labels: [],
@@ -47,7 +47,11 @@ export default {
       this.record.funds = value
     },
     onUpdatedNumber(value) {
-      this.record.amount = value
+      if(value===''){
+        this.record.amount = 0
+      }else{
+        this.record.amount = value
+      }
     },
     submit() {
       // 深拷贝
@@ -65,9 +69,6 @@ export default {
         type = '支出'
       } else {
         type = '收入'
-      }
-      if (amount === '') {
-        amount = 0
       }
       if (note === '') {
         note = '您未输入备注'
@@ -88,6 +89,8 @@ export default {
         console.log(123);
         localStorage.setItem('recordList',JSON.stringify(this.recordList))
         window.alert('数据已保存')
+        // 刷新页面
+        this.$router.go(0)
       }
     }
   },
@@ -106,9 +109,9 @@ export default {
 
 .headline {
   background: #f8f8f8;
-  height: 50px;
+  height: 30px;
   width: 100%;
-  line-height: 50px;
+  line-height: 30px;
   text-align: center;
   border-bottom: 1px solid #ccc;
   letter-spacing: 0.5em;
