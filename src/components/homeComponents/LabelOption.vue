@@ -29,9 +29,11 @@ export default {
     create(){
       // 新建标签
       const name = window.prompt('请输入标签名：')
-      if(name === '' || name === ' '){ window.alert('标签名不能为空') }
-      if(name === null){console.log(null);}
-      if(this.labels){
+      if(name === '' || name === ' '){
+        window.alert('标签名不能为空') 
+      }else if(name === null){
+        console.log(null);
+      }else{
         this.labels.push(name)
         this.$emit('labels',this.labels)
       }

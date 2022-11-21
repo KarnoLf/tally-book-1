@@ -17,6 +17,9 @@
 import FundsOption from '@/components/homeComponents/FundsOption.vue'
 import Write from '@/components/homeComponents/Write.vue'
 import LabelOption from '@/components/homeComponents/LabelOption.vue'
+import recordListModel from '@/models/recordListModel.js'
+import labelListModel from '@/models/labelListModel.js'
+window.localStorage.setItem('version','0.0.1')
 
 export default {
   name: 'home',
@@ -26,26 +29,22 @@ export default {
   data() {
     return {
       // 先存储到recordList
-      recordList: JSON.parse(window.localStorage.getItem('recordList')) || [],
-      labels: ['衣', '食', '住', '行'],
+      recordList: recordListModel.fetch(),
+      labels: labelListModel.fetch(),
       record: {
         labels: [],
         note: '',
         amount: 0,
-        funds: '-'
+        funds: '-',
+        createdAt:''
       }
     }
   },
   methods: {
-    onUpdatedLabel(value) {
-      this.record.labels = value
-    },
-    onUpdatedString(value) {
-      this.record.note = value
-    },
-    onUpdatedFunds(value) {
-      this.record.funds = value
-    },
+    // 子传父收到的数据
+    onUpdatedLabel(value) {this.record.labels = value},
+    onUpdatedString(value) {this.record.note = value},
+    onUpdatedFunds(value) {this.record.funds = value},
     onUpdatedNumber(value) {
       if(value===''){
         this.record.amount = 0
@@ -53,9 +52,11 @@ export default {
         this.record.amount = value
       }
     },
+    // 数据提交
     submit() {
       // 深拷贝
       const record2 = JSON.parse(JSON.stringify(this.record))
+      record2.createdAt = new Date()
       // 存储到recordList中
       this.recordList.push(record2)
       // 提交后提示
@@ -70,26 +71,22 @@ export default {
       } else {
         type = '收入'
       }
-      if (note === '') {
-        note = '您未输入备注'
-      }
-      if (labels.length === 0){
-        labels = '您未选择标签'
-      }
-      console.log(type, amount, note, labels);
+      if (note === '') {note = '您未输入备注' }
+      if (labels.length === 0){labels = '您未选择标签' }
+      // 提示信息
       const info = `
-        您的${type}如下所示,
-        标签：${labels},
-        备注：${note},
+        您的 ${type} 如下所示:
+        标签：${labels}
+        备注：${note}
         数目：${amount}
       `
       const result = window.confirm(info)
       // 将数据存储到localStorage中
       if(result){
         console.log(123);
-        localStorage.setItem('recordList',JSON.stringify(this.recordList))
-        window.alert('数据已保存')
+        recordListModel.save(this.recordList)
         // 刷新页面
+        window.alert('数据已保存')
         this.$router.go(0)
       }
     }
@@ -101,12 +98,10 @@ export default {
 .home {
   height: 100%;
 }
-
 .contentArea {
   height: 85%;
   overflow: auto;
 }
-
 .headline {
   background: #f8f8f8;
   height: 30px;
@@ -118,19 +113,16 @@ export default {
   font-size: 1.2em;
   font-weight: bold;
 }
-
 h3 {
   margin: 10px 20px;
   padding-top: 5px;
   border-top: 1px solid #bbb;
 }
-
 .buttonArea {
   height: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
-
   .ok {
     height: 50px;
     width: 240px;
@@ -141,7 +133,6 @@ h3 {
     background: #fab949;
     text-align: center;
     font-size: 1.1em;
-
     &:focus {
       outline: none;
     }
