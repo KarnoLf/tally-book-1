@@ -7,10 +7,11 @@ const labelListModel = {
     return this.data
   },
   create(name){
-    if(this.data.indexOf(name)>= 0){
+    const names = this.data.map(item => item.name)
+    if(names.indexOf(name)>= 0){
       return false
     }
-    this.data.push(name)
+    this.data.push({id:new Date().getTime(),name:name})
     this.save()
     return true
   },

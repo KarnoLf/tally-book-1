@@ -1,8 +1,8 @@
 <template>
   <div>
     <ul>
-      <li v-for="label in labels" :key="label">
-        {{label}}
+      <li v-for="label in labels" :key="label.id" @click="jumpClick(label.id)">
+        {{label.name}}
         <span>></span>
       </li>
     </ul>
@@ -31,6 +31,9 @@ export default {
           window.alert('标签列表中已存在相同标签名')
         }
       }
+    },
+    jumpClick(id){
+      this.$router.push(`/label/edit/${id}`)
     }
   }
 }
@@ -62,6 +65,7 @@ ul{
   height: 40px;
   padding: 0 20px;
   margin: 10px;
+  outline:none;
 }
 }
 
