@@ -4,19 +4,23 @@
       <span>管理标签</span>
     </div>
     <ul>
-      <li v-for="label in labels" :key="label.id" @click="jumpClick(label.id)">
+      <li @click="create" class="create">新建标签 
+        <v-icon class="svg" iconClass="right"/>
+      </li>
+      <li v-for="label in labels" :key="label.id">
         {{label.name}}
-        <span>&gt;</span>
+        <span @click="labelDelete">
+          <v-icon class="svg" iconClass="delete"  />
+        </span>
       </li>
     </ul>
-    <div class="button">
-      <button @click="create">新建标签</button>
-    </div>
+    
   </div>
 </template>
  
 <script>
 import labelListModel from '@/models/labelListModel';
+import '@/icons/svg/delete.svg'
 
 labelListModel.fetch()
 export default {
@@ -35,8 +39,11 @@ export default {
         }
       }
     },
-    jumpClick(id){
-      this.$router.push(`/label/edit/${id}`)
+    labelDelete(){
+      const confirmDelete = window.confirm('确认要删除吗？')
+      if(confirmDelete){
+        console.log(123);
+      }
     }
   }
 }
@@ -46,13 +53,16 @@ export default {
 .headline{
   height: 40px;
   line-height: 40px;
-  background: #fdfdfd;
+  background: #f8f8f8;
   font-weight: bold;
   width: 100%;
   text-align: center;
   border-bottom: #c5c5c5 1px solid;
 }
 ul{
+  .create{
+    padding-left: 65%;
+  }
   li{
     font-size: 1.1em;
     display: flex;
@@ -60,25 +70,14 @@ ul{
     height: 3em;
     line-height: 3em;
     padding-left: 30px;
-    background: #fff;
     border-bottom: 1px solid #c5c5c5;
-    span{
-      padding: 0 20px;
-      font-size: 1.5em;
+    .svg{
+      margin-top: 15px;
+      margin-right: 15px;
+      font-size: 1em;
       cursor:pointer;
     }
   }
-}
-.button{
-  text-align: center;
-  button{
-  background: #eaa838;
-  border-radius: 15px;
-  height: 40px;
-  padding: 0 20px;
-  margin: 10px;
-  outline:none;
-}
 }
 
 </style>

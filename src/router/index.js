@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import editLabel from '../components/labelComponents/editLabel.vue'
 
 Vue.use(VueRouter)
 
@@ -26,11 +25,6 @@ const routes = [
     path:'/label',
     name:'label',
     component:() => import('../views/Label.vue')
-  },
-  {
-    path:'/label/edit/:id',
-    name:'editLabel',
-    component:editLabel
   },
   {
     path:'*',

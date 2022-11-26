@@ -55,6 +55,7 @@ export default {
   li{
     display: flex;
     flex-direction: column;
+    cursor:pointer;
     &.active{
       color: #e9a738;
       font-weight: bold;

@@ -37,7 +37,6 @@ export default {
   display: flex;
   height: 50px;
   padding: 10px;
-
   // border-bottom:1px solid #bbb;
   span {
     font-weight: bold;
@@ -48,6 +47,14 @@ export default {
     background: white;
     margin-left: 40px;
     padding-left: 5px;
+    border: 1px solid rgb(228, 228, 228);
+    overflow: hidden;
+    &:hover{
+      border: 1px solid #fab949;
+    }
+    &:focus{
+    outline:1px solid #fab949;
+    }
   }
 }
 </style>
