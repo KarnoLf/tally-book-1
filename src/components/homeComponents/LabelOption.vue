@@ -37,11 +37,6 @@ export default {
           window.alert('标签列表中已存在相同标签名')
         }
       }
-      // if(name === '' || name === ' '){
-      //   window.alert('标签名不能为空') 
-      // }else if(name === null){
-      //   console.log(null);
-      // }else{
         this.labels.push(name)
         this.$emit('labels',this.labels)
         this.$router.go(0)
@@ -64,6 +59,9 @@ li {
     padding: 5px;
     text-align: center;
     background: #efefef;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 50px;
   }
   .selected{
     background: rgb(231, 210, 170);
