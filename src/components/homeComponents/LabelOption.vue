@@ -1,13 +1,15 @@
 <template>
   <div>
     <ul class="labelOption">
-      <li :class="selectedLabels.indexOf(label)>=0 && 'selected'" v-for="(label,index) in labels" :key="index" @click="select(label)">{{label}}</li>
+      <li :class="selectedLabels.indexOf(label)>=0 && 'selected'" v-for="(label,index) in labels" :key="index" @click="select(label)">{{label.name}}</li>
       <li class="label" @click="create">+ 增加</li>
     </ul>
   </div>
 </template>
  
 <script>
+import labelListModel from '@/models/labelListModel.js'
+labelListModel.fetch()
 export default {
   data() {
     return {
@@ -29,18 +31,24 @@ export default {
     create(){
       // 新建标签
       const name = window.prompt('请输入标签名：')
-      if(name === '' || name === ' '){
-        window.alert('标签名不能为空') 
-      }else if(name === null){
-        console.log(null);
-      }else{
+      if(name){
+        const success = labelListModel.create(name)
+        if(!success){
+          window.alert('标签列表中已存在相同标签名')
+        }
+      }
+      // if(name === '' || name === ' '){
+      //   window.alert('标签名不能为空') 
+      // }else if(name === null){
+      //   console.log(null);
+      // }else{
         this.labels.push(name)
         this.$emit('labels',this.labels)
+        this.$router.go(0)
       }
     }
   }
  
-}
 </script>
  
 <style lang = "less" scoped>

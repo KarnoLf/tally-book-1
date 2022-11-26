@@ -1,9 +1,12 @@
 <template>
   <div>
+    <div class="headline">
+      <span>管理标签</span>
+    </div>
     <ul>
       <li v-for="label in labels" :key="label.id" @click="jumpClick(label.id)">
         {{label.name}}
-        <span>></span>
+        <span>&gt;</span>
       </li>
     </ul>
     <div class="button">
@@ -40,6 +43,15 @@ export default {
 </script>
  
 <style lang = "less" scoped>
+.headline{
+  height: 40px;
+  line-height: 40px;
+  background: #fdfdfd;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  border-bottom: #c5c5c5 1px solid;
+}
 ul{
   li{
     font-size: 1.1em;
