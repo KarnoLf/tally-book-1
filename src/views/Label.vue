@@ -34,6 +34,7 @@ export default {
       const name = window.prompt('请输入标签名')
       if(name){
         const success = labelListModel.create(name)
+        console.log(success);
         if(!success){
           window.alert('标签列表中已存在相同标签名')
         }

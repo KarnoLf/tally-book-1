@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="labelOption">
-      <li :class="selectedLabels.indexOf(label)>=0 && 'selected'" v-for="(label,index) in labels" :key="index" @click="select(label)">{{label.name}}</li>
+      <li :class="selectedLabels.indexOf(label)>=0 && 'selected'" v-for="label in labels" :key="label.id" @click="select(label)">{{label.name}}</li>
       <li class="label" @click="create">+ 增加</li>
     </ul>
   </div>
@@ -13,7 +13,7 @@ labelListModel.fetch()
 export default {
   data() {
     return {
-      selectedLabels:[]
+      selectedLabels:[],
     }
   },
   props:['labels'],
@@ -33,13 +33,11 @@ export default {
       const name = window.prompt('请输入标签名：')
       if(name){
         const success = labelListModel.create(name)
+        this.$emit('labels',this.labels)
         if(!success){
           window.alert('标签列表中已存在相同标签名')
+          }
         }
-      }
-        this.labels.push(name)
-        this.$emit('labels',this.labels)
-        this.$router.go(0)
       }
     }
   }
