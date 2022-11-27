@@ -59,9 +59,9 @@ li {
     padding: 5px;
     text-align: center;
     background: #f5f5f5;
-    overflow: hidden;
+    overflow: auto;
     text-overflow: ellipsis;
-    max-height: 50px;
+    max-height: 60px;
   }
   .selected{
     color: #ffffff;

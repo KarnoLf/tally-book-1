@@ -23,6 +23,8 @@ export default{
   border: 0;
   box-sizing: border-box;
   list-style: none;
+  // 去除选中后的蓝色背景
+  -webkit-tap-highlight-color: transparent;
 }
 
 body{
