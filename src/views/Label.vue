@@ -9,7 +9,7 @@
       </li>
       <li v-for="label in labels" :key="label.id">
         {{label.name}}
-        <span @click="labelDelete">
+        <span @click="labelDelete(label.id)">
           <v-icon class="svg" iconClass="delete"  />
         </span>
       </li>
@@ -26,7 +26,7 @@ labelListModel.fetch()
 export default {
   data(){
     return{
-      labels:labelListModel.data
+      labels:labelListModel.data,
     }
   },
   methods:{
@@ -39,10 +39,12 @@ export default {
         }
       }
     },
-    labelDelete(){
-      const confirmDelete = window.confirm('确认要删除吗？')
-      if(confirmDelete){
-        console.log(123);
+    labelDelete(id){
+      if(this.labels){
+        const confirmDelete = window.confirm('确认要删除吗？')
+        if(confirmDelete){
+          labelListModel.remove(id)
+        }
       }
     }
   }

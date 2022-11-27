@@ -53,17 +53,18 @@ export default {
 }
 li {
     margin: 2.5%;
-    border: 1px solid #444;
+    border: 1px solid rgb(194, 194, 194);
     border-radius: 5px;
     width: 20%;
     padding: 5px;
     text-align: center;
-    background: #efefef;
+    background: #f5f5f5;
     overflow: hidden;
     text-overflow: ellipsis;
     max-height: 50px;
   }
   .selected{
+    color: #ffffff;
     background: rgb(231, 210, 170);
   }
 </style>
