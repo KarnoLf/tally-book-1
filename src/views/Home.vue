@@ -59,36 +59,11 @@ export default {
       record2.createdAt = new Date()
       // 存储到recordList中
       this.recordList.push(record2)
-      // 提交后提示
-      // 变量
-      let labels = record2.labels
-      let type = ''
-      let amount =record2.amount
-      let note = record2.note
-      // 判断函数
-      if (record2.funds === '-') {
-        type = '支出'
-      } else {
-        type = '收入'
-      }
-      if (note === '') {note = '您未输入备注' }
-      if (labels.length === 0){labels = '您未选择标签' }
-      // 提示信息
-      const info = `
-        您的 ${type} 如下所示:
-        标签：${labels}
-        备注：${note}
-        数目：${amount}
-      `
-      const result = window.confirm(info)
       // 将数据存储到localStorage中
-      if(result){
-        console.log(123);
-        recordListModel.save(this.recordList)
-        // 刷新页面
-        window.alert('数据已保存')
-        this.$router.go(0)
-      }
+      recordListModel.save(this.recordList)
+      // 刷新页面
+      window.alert('数据已保存')
+      this.$router.go(0)
     }
   },
 }
