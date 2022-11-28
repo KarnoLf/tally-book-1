@@ -3,16 +3,39 @@
     <div class="headline">
       <span>统计报告</span>
     </div>
+    <div id="statistics">
+      <span id="pay">收入：{{}}</span>
+      <span id="incoming">支出：{{}}</span>
+    </div>
+    <ul>
+      <li v-for="data in totalData" :key="data.createdAt" class="clearfix">
+        <span id="labelName" v-for="(labelName,index) in data.labels" :key="index">{{labelName.name}}</span>
+        <div id="fundsAmount">
+          <span :class="data.funds==='-' ? 'red' : 'green'">{{data.funds}}</span>
+          <span :class="data.funds==='-' ? 'red' : 'green'">￥{{data.amount}}</span>
+        </div>
+        <p id="note">{{data.note}}</p>
+        <p id="date">{{getDate(data.createdAt)}}</p>
+      </li>
+    </ul>
   </div>
 </template>
  
 <script>
+import recordListModel from '@/models/recordListModel.js'
+recordListModel.fetch()
 export default {
   data() {
     return {
-
+      totalData:recordListModel.fetch(),
     }
-  }
+  },
+  methods: {
+    getDate(date){
+      date = new Date()
+      return date.toLocaleDateString('zh-CN')
+    }
+  },
 }
 </script>
  
@@ -25,5 +48,42 @@ export default {
   width: 100%;
   text-align: center;
   border-bottom: #c5c5c5 1px solid;
+}
+ul{
+  li{
+    margin: 10px;
+    min-height: 40px;
+    border-bottom: 1px solid #c5c5c5;
+    #labelName{
+      margin: 5px;
+      font-size: 1.1em;
+      font-weight: bold;
+      color: rgba(252, 195, 89, 0.822);
+    }
+    #fundsAmount{
+      display: inline;
+      position: absolute;
+      right: 10px;
+    }
+    #note{
+      font-size: 0.9em;
+      color: grey;
+      width: 80%;
+    }
+    #date{
+      margin: 2px 10px;
+    }
+  }
+}
+.red{
+  color:red;
+  font-weight: bold;
+}
+.green{
+  color:green;
+  font-weight: bold;
+}
+.clearfix{
+  clear: both;
 }
 </style>

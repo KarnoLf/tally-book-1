@@ -22,11 +22,10 @@
 import labelListModel from '@/models/labelListModel';
 import '@/icons/svg/delete.svg'
 
-labelListModel.fetch()
 export default {
   data(){
     return{
-      labels:labelListModel.data,
+      labels:labelListModel.fetch()
     }
   },
   methods:{
