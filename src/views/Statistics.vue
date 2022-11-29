@@ -4,18 +4,22 @@
       <span>统计报告</span>
     </div>
     <div id="statistics">
-      <span id="pay">收入：{{}}</span>
-      <span id="incoming">支出：{{}}</span>
+      <span id="pay">支出：{{}}</span>
+      <span id="incoming">收入：{{}}</span>
     </div>
     <ul>
-      <li v-for="data in totalData" :key="data.createdAt" class="clearfix">
+      <li v-for="data in totalData" :key="data.createdAt">
         <span id="labelName" v-for="(labelName,index) in data.labels" :key="index">{{labelName.name}}</span>
         <div id="fundsAmount">
           <span :class="data.funds==='-' ? 'red' : 'green'">{{data.funds}}</span>
           <span :class="data.funds==='-' ? 'red' : 'green'">￥{{data.amount}}</span>
         </div>
         <p id="note">{{data.note}}</p>
-        <p id="date">{{getDate(data.createdAt)}}</p>
+        <p id="date">
+          {{getDate(data.createdAt)}} 
+          <span @click="remove(data.createdAt)"><v-icon class="svg" iconClass="delete"/>
+          </span>
+        </p>
       </li>
     </ul>
   </div>
@@ -23,6 +27,7 @@
  
 <script>
 import recordListModel from '@/models/recordListModel.js'
+import '@/icons/svg/delete.svg'
 recordListModel.fetch()
 export default {
   data() {
@@ -34,6 +39,14 @@ export default {
     getDate(date){
       date = new Date()
       return date.toLocaleDateString('zh-CN')
+    },
+    remove(id){
+      if(this.totalData){
+        const confirmDelete = window.confirm('确认要删除吗？')
+        if(confirmDelete){
+          recordListModel.remove(id)
+        }
+      }
     }
   },
 }
@@ -54,6 +67,8 @@ ul{
     margin: 10px;
     min-height: 40px;
     border-bottom: 1px solid #c5c5c5;
+    position:relative;
+    clear: both;
     #labelName{
       margin: 5px;
       font-size: 1.1em;
@@ -72,6 +87,8 @@ ul{
     }
     #date{
       margin: 2px 10px;
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
@@ -82,8 +99,5 @@ ul{
 .green{
   color:green;
   font-weight: bold;
-}
-.clearfix{
-  clear: both;
 }
 </style>

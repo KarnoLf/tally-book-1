@@ -32,7 +32,7 @@ export default {
       recordList: recordListModel.fetch(),
       labels: labelListModel.fetch(),
       record: {
-        labels: [],
+        labels: ['无'],
         note: '',
         amount: 0,
         funds: '-',

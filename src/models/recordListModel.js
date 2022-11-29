@@ -1,8 +1,10 @@
 // 建立模型
 const localStorageKeyName = 'recordList'
 const recordListModel = {
+  data:[],
   fetch(){
-    return JSON.parse(window.localStorage.getItem(localStorageKeyName)|| '[]') 
+    this.data = JSON.parse(window.localStorage.getItem(localStorageKeyName)|| '[]') 
+    return this.data
   },
   remove(id){
     let index = 0
@@ -16,8 +18,8 @@ const recordListModel = {
     this.save()
     return true
   },
-  save(data){
-    window.localStorage.setItem(localStorageKeyName,JSON.stringify(data))
+  save(){
+    window.localStorage.setItem(localStorageKeyName,JSON.stringify(this.data))
   }
 }
 

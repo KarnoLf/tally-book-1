@@ -3,7 +3,7 @@ const localStorageKeyName = 'labelList'
 const labelListModel = {
   data:[],
   fetch(){
-    this.data = JSON.parse(window.localStorage.getItem(localStorageKeyName)|| '[]') 
+    this.data = JSON.parse(window.localStorage.getItem(localStorageKeyName)|| "[]") 
     return this.data
   },
   create(name){
