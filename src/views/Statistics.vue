@@ -3,10 +3,7 @@
     <div class="headline">
       <span>统计报告</span>
     </div>
-    <div id="statistics">
-      <span id="pay">支出：{{}}</span>
-      <span id="incoming">收入：{{}}</span>
-    </div>
+    <div>收入:{{totalIncoming}} 支出:{{totalPay}}</div>
     <ul>
       <li v-for="data in totalData" :key="data.createdAt">
         <span id="labelName" v-for="(labelName,index) in data.labels" :key="index">{{labelName.name}}</span>
@@ -32,7 +29,37 @@ recordListModel.fetch()
 export default {
   data() {
     return {
-      totalData:recordListModel.fetch(),
+      totalData:recordListModel.fetch()
+    }
+  },
+  computed:{
+    totalPay(){
+      let totalPay = 0
+      let arr = []
+      this.totalData.map((item) => {
+        if(item.funds === '-'){
+          arr.push(item)
+        }
+        return arr
+      })
+      console.log(arr);
+      arr.map(item => totalPay += parseInt(item.amount))
+      console.log(totalPay);
+     return totalPay
+    },
+    totalIncoming(){
+      let totalPay = 0
+      let arr = []
+      this.totalData.map((item) => {
+        if(item.funds === '+'){
+          arr.push(item)
+        }
+        return arr
+      })
+      console.log(arr);
+      arr.map(item => totalPay += parseInt(item.amount))
+      console.log(totalPay);
+     return totalPay
     }
   },
   methods: {
@@ -84,6 +111,7 @@ ul{
       font-size: 0.9em;
       color: grey;
       width: 80%;
+      margin-left: 6px;
     }
     #date{
       margin: 2px 10px;
@@ -100,4 +128,5 @@ ul{
   color:green;
   font-weight: bold;
 }
+
 </style>
