@@ -3,7 +3,10 @@
     <div class="headline">
       <span>统计报告</span>
     </div>
-    <div>收入:{{totalIncoming}} 支出:{{totalPay}}</div>
+    <div class="total">
+      <span id="incoming">收入:￥{{totalIncoming}}</span>
+      <span id="pay">支出:￥{{totalPay}}</span>
+    </div>
     <ul>
       <li v-for="data in totalData" :key="data.createdAt">
         <span id="labelName" v-for="(labelName,index) in data.labels" :key="index">{{labelName.name}}</span>
@@ -42,9 +45,7 @@ export default {
         }
         return arr
       })
-      console.log(arr);
       arr.map(item => totalPay += parseInt(item.amount))
-      console.log(totalPay);
      return totalPay
     },
     totalIncoming(){
@@ -56,9 +57,7 @@ export default {
         }
         return arr
       })
-      console.log(arr);
       arr.map(item => totalPay += parseInt(item.amount))
-      console.log(totalPay);
      return totalPay
     }
   },
@@ -93,9 +92,10 @@ ul{
   li{
     margin: 10px;
     min-height: 40px;
-    border-bottom: 1px solid #c5c5c5;
+    // border-bottom: 1px solid #c5c5c5;
     position:relative;
     clear: both;
+    background: #fffcf8;
     #labelName{
       margin: 5px;
       font-size: 1.1em;
@@ -118,6 +118,27 @@ ul{
       display: flex;
       justify-content: space-between;
     }
+  }
+}
+.total{
+  padding: 10px;
+  text-align: center;
+  border: 1px double #ffdec3;
+  border-radius: 10px;
+  background: #fff3e8;
+  span{
+    font-weight: bold;
+    font-size: 1.5em;
+    overflow: auto;
+    display: block;
+    font-family: "Gill Sans", sans-serif;
+  }
+  #incoming{
+    color: rgb(13, 218, 13);
+  }
+  #pay{
+    color: rgb(255, 45, 45);
+    margin-top: 3px;
   }
 }
 .red{
