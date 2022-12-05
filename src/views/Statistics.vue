@@ -16,13 +16,16 @@
  #nav{
    text-align: right;
    padding: 10px;
-   background: rgb(255, 221, 157);
+   background: rgb(255, 216, 143);
    a{
+     display: inline-block;
+     padding: 2px;
      margin-left: 15px;
      padding: 4px;
-     font-size: 1.1em;
+     font-size: 1em;
      background: rgb(255, 191, 72);
      border-radius: 20px;
+     font-family: "Gill Sans", sans-serif;
    }
  }
  .router-link-active{

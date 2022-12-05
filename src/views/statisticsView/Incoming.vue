@@ -2,14 +2,13 @@
  <div>
   <div class="total">
       <span id="incoming">收入:￥{{totalIncoming}}</span>
-      <!-- <span id="pay">支出:￥{{totalPay}}</span> -->
     </div>
-    <ul>
-      <li v-for="data in totalData" :key="data.createdAt">
+    <ul v-for="data in totalData" :key="data.createdAt">
+      <li v-if="data.funds==='+'">
         <span id="labelName" v-for="(labelName,index) in data.labels" :key="index">{{labelName.name}}</span>
         <div id="fundsAmount">
-          <span :class="data.funds==='-' ? 'red' : 'green'">{{data.funds}}</span>
-          <span :class="data.funds==='-' ? 'red' : 'green'">￥{{data.amount}}</span>
+          <span class="green">{{data.funds}}</span>
+          <span class="green">￥{{data.amount}}</span>
         </div>
         <p id="note">{{data.note}}</p>
         <p id="date">
@@ -33,18 +32,6 @@ export default {
     }
   },
   computed:{
-    totalPay(){
-      let totalPay = 0
-      let arr = []
-      this.totalData.map((item) => {
-        if(item.funds === '-'){
-          arr.push(item)
-        }
-        return arr
-      })
-      arr.map(item => totalPay += parseInt(item.amount))
-     return totalPay
-    },
     totalIncoming(){
       let totalPay = 0
       let arr = []
@@ -56,11 +43,6 @@ export default {
       })
       arr.map(item => totalPay += parseInt(item.amount))
      return totalPay
-    },
-    ChooseType(data){
-      if(data === '+'){
-        return true
-      }
     }
   },
   methods: {
@@ -117,7 +99,7 @@ ul{
 .total{
   padding: 20px;
   text-align: left;
-  background: rgb(255, 221, 157);
+  background: rgb(255, 216, 143);
   span{
     font-weight: bold;
     font-size: 1.5em;
@@ -128,14 +110,6 @@ ul{
   #incoming{
     color:white;
   }
-  #pay{
-    color: rgb(255, 45, 45);
-    margin-top: 3px;
-  }
-}
-.red{
-  color:red;
-  font-weight: bold;
 }
 .green{
   color:green;
