@@ -26,11 +26,13 @@ export default{
   // 去除选中后的蓝色背景
   -webkit-tap-highlight-color: transparent;
 }
-
 body{
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+a{
+  text-decoration: none;
 }
 #app{
   height: 100%;
