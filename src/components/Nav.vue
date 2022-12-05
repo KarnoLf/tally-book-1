@@ -9,7 +9,7 @@
       <v-icon class="svg" iconClass="money" />
       记账
     </li>
-     <li :class="$route.path==='/statistics' ? 'active' : ''"  @click="goStatistics">
+     <li :class="($route.path==='/statistics/pay' || $route.path==='/statistics/incoming') ? 'active' : ''"  @click="goStatistics">
       <v-icon class="svg" iconClass="statistics" />
       数据
     </li>
@@ -29,17 +29,17 @@ try{
 // import '@/icons/svg/money.svg'
 // import '@/icons/svg/statistics.svg'
 export default {
-  methods:{
-    goHome(){
-      this.$router.push('/')
-    },
-    goLabel(){
-      this.$router.push('/label')
-    },
-    goStatistics(){
-      this.$router.push('/statistics')
-    },
-  }
+methods:{
+  goHome(){
+    this.$router.push('/')
+  },
+  goLabel(){
+    this.$router.push('/label')
+  },
+  goStatistics(){
+    this.$router.push('/statistics')
+  },
+}
 }
 </script>
  

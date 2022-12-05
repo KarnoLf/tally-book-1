@@ -2,7 +2,7 @@
   <div>
    <div class="total">
        <span id="pay">支出:￥{{totalPay}}</span>
-     </div>
+    </div>
      <ul v-for="data in totalData" :key="data.createdAt">
        <li v-if="data.funds==='-'">
          <span id="labelName" v-for="(labelName,index) in data.labels" :key="index">{{labelName.name}}</span>
