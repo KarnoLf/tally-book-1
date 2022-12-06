@@ -46,10 +46,9 @@
      }
    },
    methods: {
-     getDate(date){
-       date = new Date()
-       return date.toLocaleDateString('zh-CN')
-     },
+    getDate(date){
+      return date.slice(0,10)
+    },
      remove(id){
        if(this.totalData){
          const confirmDelete = window.confirm('确认要删除吗？')
@@ -68,7 +67,6 @@
    li{
      margin: 10px;
      min-height: 40px;
-     // border-bottom: 1px solid #c5c5c5;
      position:relative;
      clear: both;
      background: #fffcf8;

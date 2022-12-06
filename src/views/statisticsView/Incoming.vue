@@ -47,8 +47,7 @@ export default {
   },
   methods: {
     getDate(date){
-      date = new Date()
-      return date.toLocaleDateString('zh-CN')
+      return date.slice(0,10)
     },
     remove(id){
       if(this.totalData){
