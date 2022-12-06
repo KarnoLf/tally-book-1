@@ -65,9 +65,9 @@ export default {
 
 ul{
   li{
-    margin: 10px;
+    padding: 10px 0;
     min-height: 40px;
-    // border-bottom: 1px solid #c5c5c5;
+    border-bottom: 1px solid #c5c5c5;
     position:relative;
     clear: both;
     background: #fffcf8;
@@ -96,7 +96,7 @@ ul{
   }
 }
 .total{
-  padding: 20px;
+  padding: 30px;
   text-align: left;
   background: rgb(255, 216, 143);
   span{
