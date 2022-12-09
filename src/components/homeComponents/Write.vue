@@ -2,7 +2,12 @@
   <div>
     <label class="write">
       <span>备注</span>
-      <input type="text" placeholder="在此输入备注" v-model="writeValue">
+      <input 
+      type="text" 
+      placeholder="在此输入备注" 
+      v-model="writeValue"
+      @focus="blur"
+      >
     </label>
     <label class="write">
       <span>数目</span>
