@@ -49,7 +49,7 @@ export default {
       if(value===''){
         this.record.amount = 0
       }else{
-        this.record.amount = value
+        this.record.amount = parseFloat(value)
       }
     },
     // 数据提交

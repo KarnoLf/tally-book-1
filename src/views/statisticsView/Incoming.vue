@@ -41,7 +41,7 @@ export default {
         }
         return arr
       })
-      arr.map(item => totalPay += parseInt(item.amount))
+      arr.map(item => totalPay += parseFloat(item.amount))
      return totalPay
     }
   },
