@@ -48,6 +48,8 @@ export default {
   methods:{
     focus(){
       this.visible = true
+      // 禁止系统自带软键盘跳出，原理就是被聚焦的元素失焦
+      document.activeElement.blur()
     },
     blur(){
       this.visible = false
