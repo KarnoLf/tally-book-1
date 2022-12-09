@@ -58,7 +58,8 @@ export default {
       const record2 = JSON.parse(JSON.stringify(this.record))
       record2.createdAt = new Date()
       // 存储到recordList中
-      this.recordList.push(record2)
+      // 使用unshift可以是数据追加到record最前面，在统计列表中可以将最新的账目展示到最上面
+      this.recordList.unshift(record2)
       // 将数据存储到localStorage中
       recordListModel.save(this.recordList)
       // 刷新页面
