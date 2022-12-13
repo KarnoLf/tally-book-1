@@ -34,6 +34,9 @@ body{
 a{
   text-decoration: none;
 }
+a:link,a:visited{
+  color: black;
+}
 #app{
   height: 100%;
   display: flex;

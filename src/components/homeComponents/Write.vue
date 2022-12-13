@@ -15,11 +15,9 @@
       type="text" 
       maxlength="2"
       placeholder="在此输入数字" 
-      oninput="if(value.length>16)value=value.slice(0,16)" 
       v-model="numberValue"
       @focus="focus"
       >
-      <!-- 限制长度 -->
     </label>
     <div v-show="visible">
       <p class="back" @click="blur">收起键盘</p>
