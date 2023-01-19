@@ -11,6 +11,9 @@ function resolve(dir){
   return path.join(__dirname,'./',dir)
 }
 module.exports={
+  // 部署到github
+  publicPath :process.env.NODE_ENV === 'production' ? '/tally-book-1/' : '/',
+  
   chainWebpack(config){
     config.module
       .rule('svg')

@@ -119,6 +119,7 @@ export default {
   bottom: 360px;
   height: 40px;
   width: 100%;
+  max-width: 600px;
   text-align: center;
   background: rgb(223, 237, 255);
   font-family: "Gill Sans", sans-serif;
@@ -128,6 +129,7 @@ export default {
   position: absolute;
   bottom: 60px;
   height: 300px;
+  max-width: 600px;
   width: 100%;
   background: white;
   display: flex;
